@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return res== PackageManager.PERMISSION_GRANTED;
     }
 
+//    on requestPermission it is accessed to ask the permission in run time
     private void requestPermission() {
 
         ActivityCompat.requestPermissions(this, new String[]{CAMERA}, PERMISSION_REQUEST_CODE);
