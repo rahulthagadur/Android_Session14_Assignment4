@@ -16,11 +16,12 @@ import android.widget.Button;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 import static android.Manifest.permission.CAMERA;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final int PERMISSION_REQUEST_CODE = 200;
     private View view;
-    Button checkPermission,reqPermission;
+    Button checkPermission, reqPermission;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,14 +69,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }
+
     //Check whether the permission is given or not
     private boolean checkPermission() {
-        int res= ContextCompat.checkSelfPermission(getApplicationContext(), CAMERA);
+        int res = ContextCompat.checkSelfPermission(getApplicationContext(), CAMERA);
 
-        return res== PackageManager.PERMISSION_GRANTED;
+        return res == PackageManager.PERMISSION_GRANTED;
     }
 
-//    on requestPermission it is accessed to ask the permission in run time
+    //    on requestPermission it is accessed to ask the permission in run time
     private void requestPermission() {
 
         ActivityCompat.requestPermissions(this, new String[]{CAMERA}, PERMISSION_REQUEST_CODE);
@@ -90,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case PERMISSION_REQUEST_CODE:
                 if (grantResults.length > 0) {
 
-                    boolean camera= grantResults[0] == PackageManager.PERMISSION_GRANTED;
+                    boolean camera = grantResults[0] == PackageManager.PERMISSION_GRANTED;
 
                     if (camera)
                         Snackbar.make(view, "Permission has been Granted.", Snackbar.LENGTH_LONG).show();
